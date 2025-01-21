@@ -37,7 +37,10 @@ export default function ContactPage() {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:5000/api/addMessage/", formData);
+      await axios.post(
+        "https://lin-server.onrender.com/api/addMessage/",
+        formData
+      );
 
       // Show success alert
       Swal.fire({
