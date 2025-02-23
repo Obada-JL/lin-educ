@@ -1,0 +1,165 @@
+{
+  "dir": "ltr",
+  "hero": {
+    "title": "Experience interactive and creative learning",
+    "description": "Start your educational journey with us today, where creativity meets knowledge!",
+    "startNow": "Start Now",
+    "stats": {
+      "products": "Educational boards and booklets"
+    }
+  },
+  "whyUs": {
+    "title": "Why Us?",
+    "subtitle": "Discover a world of fun learning",
+    "features": {
+      "quality": {
+        "title": "High quality content",
+        "description": "Distinctive and carefully prepared educational curricula"
+      },
+      "flexible": {
+        "title": "Interactive education",
+        "description": "Interactive learning experience for easy understanding"
+      },
+      "interactive": {
+        "title": "Simplified information",
+        "description": "Easy design helps you focus while learning."
+      },
+      "affordable": {
+        "title": "Reasonable prices",
+        "description": "High quality education at affordable prices"
+      },
+      "certification": {
+        "title": "Certification",
+        "description": "Encouraging certificates to motivate children to continue"
+      },
+      "support": {
+        "title": "Customer trust",
+        "description": "Fresh content to ensure up-to-date and useful education"
+      }
+    }
+  },
+  "products": {
+    "title": "Explore Products",
+    "subtitle": "Products",
+    "viewAll": "See all courses",
+    "details": "Details"
+  },
+  "cta": {
+    "title": "Get started now!",
+    "description": "Start your learning journey today and unlock your full potential with us",
+    "buttons": {
+      "start": "Get started",
+      "view": "View courses"
+    }
+  },
+  "events": {
+    "title": "Upcoming Events",
+    "subtitle": "Coming soon",
+    "readMore": "Read more",
+    "date": {
+      "may": "May"
+    },
+    "location": "Location"
+  },
+  "courses": {
+    "videoCourse": "video course",
+    "lessons": "lessons",
+    "by": "by",
+    "details": "Details"
+  },
+  "stats": {
+    "onlineCourses": "Online Courses"
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "courses": "Courses",
+    "contact": "Contact",
+    "switchTo": "عربي"
+  },
+  "footer": {
+    "description": "Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.",
+    "navigation": {
+      "title": "Navigation",
+      "home": "Home",
+      "about": "About",
+      "courses": "Courses",
+      "products": "Products",
+      "contact": "Contact"
+    },
+    "categories": {
+      "title": "Course Categories",
+      "ramadan": "Ramadan Lessons",
+      "sirah": "Sirah Lessons",
+      "tacwid": "Tacwid Lessons"
+    },
+    "help": {
+      "title": "Need Help?",
+      "faq": "FAQ",
+      "support": "Support",
+      "contact": "Contact",
+      "news": "Latest News"
+    },
+    "copyright": "Copyright © {year} - Lin Education. All Rights Reserved"
+  },
+  "about": {
+    "hero": {
+      "title": "About Us",
+      "description": "At Leen Foundation, we are concerned with designing and developing simple and innovative educational tools and materials, with the aim of motivating our children to understand Islam and care about its sciences. We use simple and effective tools such as cardboard, wood, and simple electronic boards, in addition to other resources that facilitate access to information accurately and clearly.\n\nWe aim to provide educational content that is easy to understand, suitable for all age groups, while maintaining the simplicity of presentation and the quality of information."
+    },
+    "main": {
+      "subtitle": "About us",
+      "title": "Empower Your Learning Journey With Us",
+      "description": "Discover our curated courses and interactive learning platform designed to fit your schedule and goals. Join our supportive community and master new skills at your own pace.",
+      "features": {
+        "content": "Comprehensive Content",
+        "paths": "Personalized Learning Paths",
+        "experience": "Interactive Experience"
+      },
+      "cta": "Get started"
+    },
+    "stats": {
+      "title": "Our Impact",
+      "description": "Discover the meaningful impact we've made in empowering learners worldwide.",
+      "items": {
+        "satisfaction": {
+          "title": "Satisfied Learners",
+          "subtitle": "Satisfied",
+          "value": "98%",
+          "period": "In the last 30 days"
+        },
+        "completion": {
+          "title": "Completion Rate",
+          "subtitle": "Course",
+          "value": "96%",
+          "period": "Since inception"
+        },
+        "instructors": {
+          "title": "Instructors",
+          "subtitle": "Expert",
+          "value": "500+",
+          "period": "Currently teaching"
+        },
+        "feedback": {
+          "title": "Feedback",
+          "subtitle": "Positive",
+          "value": "95%",
+          "period": "From our community"
+        }
+      }
+    },
+    "blog": {
+      "subtitle": "News",
+      "title": "Latest on our blog",
+      "readTime": "mins read"
+    },
+    "cta": {
+      "title": "Get started now!",
+      "description": "Start your learning journey today and unlock your full potential with us",
+      "buttons": {
+        "start": "Get started",
+        "courses": "View courses"
+      }
+    }
+  }
+}

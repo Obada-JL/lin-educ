@@ -1,7 +1,16 @@
+"use client";
 import Image from "next/image";
-import logoLight from "../../images/homelogo.png";
+import logoLight from "../../../images/homelogo.png";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 export default function Footer() {
+  const t = useTranslations("footer");
   const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
+  const locale = pathname.split("/")[1];
+
   return (
     <footer className="footer mt-5">
       <div className="footer_inner grad_dark">
@@ -14,18 +23,13 @@ export default function Footer() {
                     <div className="logo">
                       <Image
                         src={logoLight}
-                        alt="Coursette Logo png w36px h36px"
+                        alt="Coursette Logo"
                         width={100}
                         height={100}
                       />
                     </div>
-                    {/* <span>Coursette</span> */}
                   </div>
-                  <p>
-                    Quis ipsum suspendisse ultrices gravida. Risus commodo
-                    viverra maecenas accumsan lacus vel facilisis.
-                  </p>
-                  {/* <!-- Social Links --> */}
+                  <p>{t("description")}</p>
                   <div className="social_links_container d-flex flex-row">
                     <div>
                       <a href="#">
@@ -73,57 +77,75 @@ export default function Footer() {
                 <div className="row">
                   <div className="col-12 col-sm-6 col-md-4">
                     <div className="footer_nav_column">
-                      <p>Navigation</p>
+                      <p>{t("navigation.title")}</p>
                       <ul>
                         <li>
-                          <a href="/">Home</a>
+                          <Link href={`/${locale}`}>
+                            {t("navigation.home")}
+                          </Link>
                         </li>
                         <li>
-                          <a href="/about">About</a>
+                          <Link href={`/${locale}/about`}>
+                            {t("navigation.about")}
+                          </Link>
                         </li>
                         <li>
-                          <a href="/courses">Courses</a>
+                          <Link href={`/${locale}/courses`}>
+                            {t("navigation.courses")}
+                          </Link>
                         </li>
                         <li>
-                          <a href="/products">Products</a>
+                          <Link href={`/${locale}/products`}>
+                            {t("navigation.products")}
+                          </Link>
                         </li>
                         <li>
-                          <a href="/contact">Contact</a>
+                          <Link href={`/${locale}/contact`}>
+                            {t("navigation.contact")}
+                          </Link>
                         </li>
                       </ul>
                     </div>
                   </div>
                   <div className="col-12 col-sm-6 col-md-4">
                     <div className="footer_nav_column">
-                      <p>Course Categorys</p>
+                      <p>{t("categories.title")}</p>
                       <ul>
                         <li>
-                          <a href="#">Ramadan Lessons</a>
+                          <a href="#">{t("categories.ramadan")}</a>
                         </li>
                         <li>
-                          <a href="#">Sirah Lessons</a>
+                          <a href="#">{t("categories.sirah")}</a>
                         </li>
                         <li>
-                          <a href="#">Tacwid Lessons</a>
+                          <a href="#">{t("categories.tacwid")}</a>
                         </li>
                       </ul>
                     </div>
                   </div>
                   <div className="col-12 col-sm-6 col-md-4">
                     <div className="footer_nav_column">
-                      <p>Need Help?</p>
+                      <p>{t("help.title")}</p>
                       <ul>
                         <li>
-                          <a href="/contact#faq">FAQ</a>
+                          <Link href={`/${locale}/contact#faq`}>
+                            {t("help.faq")}
+                          </Link>
                         </li>
                         <li>
-                          <a href="/contact#message">Support</a>
+                          <Link href={`/${locale}/contact#message`}>
+                            {t("help.support")}
+                          </Link>
                         </li>
                         <li>
-                          <a href="/contact">Contact</a>
+                          <Link href={`/${locale}/contact`}>
+                            {t("help.contact")}
+                          </Link>
                         </li>
                         <li>
-                          <a href="/#news">Latest News</a>
+                          <Link href={`/${locale}/#news`}>
+                            {t("help.news")}
+                          </Link>
                         </li>
                       </ul>
                     </div>
@@ -139,20 +161,8 @@ export default function Footer() {
               <div className="col">
                 <div className="footer_bottom_content d-flex flex-row align-items-center justify-content-between">
                   <div className="copyright_text">
-                    Copyright © {currentYear} - Lin Education. All Rights
-                    Reserved
+                    {t("copyright", { year: currentYear })}
                   </div>
-                  {/* <div className="footer_bottom_links d-flex flex-row align-items-center">
-                    <div>
-                      <a href="#">Privacy Policy</a>
-                    </div>
-                    <div>
-                      <a href="#">Terms of Service</a>
-                    </div>
-                    <div>
-                      <a href="#">Cookies Settings</a>
-                    </div>
-                  </div> */}
                 </div>
               </div>
             </div>

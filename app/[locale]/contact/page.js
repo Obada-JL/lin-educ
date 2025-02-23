@@ -1,14 +1,17 @@
 "use client";
-import "../../styles/contact.css";
-import "../../styles/contact_responsive.css";
-import background1 from "../../images/background_1.png";
-import { initializeUI } from "../../js/contact";
+import "../../../styles/contact.css";
+import "../../../styles/contact_responsive.css";
+import background1 from "../../../images/background_1.png";
+import { initializeUI } from "../../../js/contact";
 import $ from "jquery";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useTranslations } from "next-intl";
 
 export default function ContactPage() {
+  const t = useTranslations("contact");
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       initializeUI();
@@ -37,10 +40,7 @@ export default function ContactPage() {
     setLoading(true);
 
     try {
-      await axios.post(
-        "https://lin-server.onrender.com/api/addMessage/",
-        formData
-      );
+      await axios.post("http://localhost:5000/api/addMessage/", formData);
 
       // Show success alert
       Swal.fire({
@@ -232,11 +232,8 @@ export default function ContactPage() {
               <div className="row">
                 <div className="col">
                   <div className="home_content">
-                    <h2>Contact Information</h2>
-                    <p>
-                      Get in touch with us for any inquiries, support, or
-                      collaboration opportunities.
-                    </p>
+                    <h2>{t("hero.title")}</h2>
+                    <p>{t("hero.description")}</p>
                   </div>
                 </div>
               </div>
@@ -261,11 +258,8 @@ export default function ContactPage() {
                       <path d="M745.54-491.77q-3.46-107.08-79.81-183.42-76.35-76.35-183.42-79.81v-52q65 1.54 121.71 26.79 56.71 25.26 99.09 67.64 42.38 42.38 67.63 99.09 25.26 56.71 26.8 121.71h-52Zm-144 0q-3.46-48.08-37.31-82.12-33.85-34.03-81.92-37.11v-52q70 3.08 118.88 52.31 48.89 49.24 52.35 118.92h-52ZM742.61-165q-109.07-9-209.69-57.58-100.61-48.58-182.38-130.34-81.38-81.77-129.46-182.2Q173-635.54 164-744.61q-2-21 12.29-36.7Q190.57-797 212-797h104.46q18.15 0 31.23 10.89 13.08 10.88 18.23 28.42L386.85-673q2.38 13.38-1.5 26.15-3.89 12.77-12.66 20.77l-92.38 89.93q22.3 41.84 49.46 78.77 27.15 36.92 59.51 69.06 31.95 31.94 69.03 59.17t80.08 49.54l94.76-92.54q8.39-8.77 19.24-11.7 10.84-2.92 24.23-.92l80.07 17.62q18.15 5 28.73 18.46 10.58 13.46 10.58 32V-213q0 21.43-16.19 35.71-16.2 14.29-37.2 12.29ZM256.92-586.92l75.39-72.31q1.92-1.54 2.5-4.23.58-2.69-.19-5l-17.55-70.39q-.77-3.07-2.69-4.61-1.92-1.54-5-1.54H223q-2.31 0-3.85 1.54-1.53 1.54-1.53 3.85 3.07 38 13.42 76.3 10.34 38.31 25.88 76.39Zm334 331.69q35.87 15.78 75.01 23.97 39.15 8.18 72.68 12.03 2.31 0 3.85-1.54t1.54-3.85v-86.15q0-3.08-1.54-5t-4.61-2.69l-65-14.08q-2.31-.77-4.04-.19-1.73.58-3.66 2.5l-74.23 75Zm-334-331.69Zm334 331.69Z" />
                     </svg>
                   </div>
-                  <h3>+90 535 080 18 11</h3>
-                  <p>
-                    For Whatsapp you can contact us from +90 551 077 43 03 phone
-                    number.
-                  </p>
+                  <h3>{t("info.phone.number")}</h3>
+                  <p>{t("info.phone.description")}</p>
                 </div>
                 {/* <!-- Info Box --> */}
                 <div className="info_box d-flex flex-column align-items-center justify-content-center">
@@ -323,8 +317,8 @@ export default function ContactPage() {
             <div className="col-xl-6 col-12">
               <div className="contact_form_split d-flex flex-column align-items-start justify-content-center">
                 <div className="contact_form_title">
-                  <h3>Get in touch</h3>
-                  <p>Our team would love to hear from you.</p>
+                  <h3>{t("form.title")}</h3>
+                  <p>{t("form.subtitle")}</p>
                 </div>
                 <div className="contact_form_container">
                   <form
@@ -334,7 +328,9 @@ export default function ContactPage() {
                   >
                     <div className="d-flex flex-md-row flex-column justify-content-between">
                       <div className="d-flex flex-column">
-                        <label htmlFor="contact_input_name">Name</label>
+                        <label htmlFor="contact_input_name">
+                          {t("form.name")}
+                        </label>
                         <input
                           type="text"
                           className="contact_input"
@@ -347,7 +343,9 @@ export default function ContactPage() {
                         />
                       </div>
                       <div className="d-flex flex-column">
-                        <label htmlFor="contact_input_email">Email</label>
+                        <label htmlFor="contact_input_email">
+                          {t("form.email")}
+                        </label>
                         <input
                           type="text"
                           className="contact_input"
@@ -361,7 +359,9 @@ export default function ContactPage() {
                       </div>
                     </div>
                     <div className="contact_textarea_container d-flex flex-column">
-                      <label htmlFor="contact_textarea">Message</label>
+                      <label htmlFor="contact_textarea">
+                        {t("form.message")}
+                      </label>
                       <textarea
                         name="receivedMessage" // Must match the state key
                         id="contact_textarea"
@@ -382,7 +382,7 @@ export default function ContactPage() {
                         >
                           <path d="M164-222v-516l648.46 258L164-222Zm52-77 454-181-454-181v116.69L408.92-480 216-415.69V-299Zm0 0v-362 362Z" />
                         </svg>
-                        <span>{loading ? "Sending..." : "Send Message"}</span>
+                        <span>{loading ? "Sending..." : t("form.send")}</span>
                       </button>
                     </div>
                   </form>
@@ -393,15 +393,15 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* <!-- FAQ --> */}
+      {/* <!-- FAQ -->
       <div className="faq" id="faq">
         <div className="faq_inner">
           <div className="container">
             <div className="row">
               <div className="col">
-                <h3 className="contact_section_title">FAQ</h3>
+                <h3 className="contact_section_title">{t("faq.title")}</h3>
                 {/* <!-- Accordions --> */}
-                <div className="accordions_col_container d-flex flex-lg-row flex-column justify-content-between flex-wrap">
+      {/* <div className="accordions_col_container d-flex flex-lg-row flex-column justify-content-between flex-wrap">
                   <div className="accordions">
                     <div className="accordion_container">
                       <div className="accordion d-flex flex-row align-items-center">
@@ -413,15 +413,11 @@ export default function ContactPage() {
                             <path d="M480-346.85 253.85-573 291-610.15l189 189 189-189L706.15-573 480-346.85Z" />
                           </svg>
                         </div>
-                        <div>Do you provide customer support?</div>
+                        <div>{t("faq.questions.0")}</div>
                       </div>
                       <div className="accordion_panel">
                         <div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua.
-                          </p>
+                          <p>{t("faq.answers.0")}</p>
                         </div>
                       </div>
                     </div>
@@ -435,15 +431,11 @@ export default function ContactPage() {
                             <path d="M480-346.85 253.85-573 291-610.15l189 189 189-189L706.15-573 480-346.85Z" />
                           </svg>
                         </div>
-                        <div>How do I enroll in a course?</div>
+                        <div>{t("faq.questions.1")}</div>
                       </div>
                       <div className="accordion_panel">
                         <div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua.
-                          </p>
+                          <p>{t("faq.answers.1")}</p>
                         </div>
                       </div>
                     </div>
@@ -457,15 +449,11 @@ export default function ContactPage() {
                             <path d="M480-346.85 253.85-573 291-610.15l189 189 189-189L706.15-573 480-346.85Z" />
                           </svg>
                         </div>
-                        <div>What payment methods are accepted?</div>
+                        <div>{t("faq.questions.2")}</div>
                       </div>
                       <div className="accordion_panel">
                         <div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua.
-                          </p>
+                          <p>{t("faq.answers.2")}</p>
                         </div>
                       </div>
                     </div>
@@ -479,15 +467,11 @@ export default function ContactPage() {
                             <path d="M480-346.85 253.85-573 291-610.15l189 189 189-189L706.15-573 480-346.85Z" />
                           </svg>
                         </div>
-                        <div>Can I access courses offline?</div>
+                        <div>{t("faq.questions.3")}</div>
                       </div>
                       <div className="accordion_panel">
                         <div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua.
-                          </p>
+                          <p>{t("faq.answers.3")}</p>
                         </div>
                       </div>
                     </div>
@@ -503,15 +487,11 @@ export default function ContactPage() {
                             <path d="M480-346.85 253.85-573 291-610.15l189 189 189-189L706.15-573 480-346.85Z" />
                           </svg>
                         </div>
-                        <div>Are there any prerequisites?</div>
+                        <div>{t("faq.questions.4")}</div>
                       </div>
                       <div className="accordion_panel">
                         <div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua.
-                          </p>
+                          <p>{t("faq.answers.4")}</p>
                         </div>
                       </div>
                     </div>
@@ -525,15 +505,11 @@ export default function ContactPage() {
                             <path d="M480-346.85 253.85-573 291-610.15l189 189 189-189L706.15-573 480-346.85Z" />
                           </svg>
                         </div>
-                        <div>How can I contact support?</div>
+                        <div>{t("faq.questions.5")}</div>
                       </div>
                       <div className="accordion_panel">
                         <div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua.
-                          </p>
+                          <p>{t("faq.answers.5")}</p>
                         </div>
                       </div>
                     </div>
@@ -547,15 +523,11 @@ export default function ContactPage() {
                             <path d="M480-346.85 253.85-573 291-610.15l189 189 189-189L706.15-573 480-346.85Z" />
                           </svg>
                         </div>
-                        <div>Do you offer refunds?</div>
+                        <div>{t("faq.questions.6")}</div>
                       </div>
                       <div className="accordion_panel">
                         <div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua.
-                          </p>
+                          <p>{t("faq.answers.6")}</p>
                         </div>
                       </div>
                     </div>
@@ -569,15 +541,11 @@ export default function ContactPage() {
                             <path d="M480-346.85 253.85-573 291-610.15l189 189 189-189L706.15-573 480-346.85Z" />
                           </svg>
                         </div>
-                        <div>How long do I have access to a course?</div>
+                        <div>{t("faq.questions.7")}</div>
                       </div>
                       <div className="accordion_panel">
                         <div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua.
-                          </p>
+                          <p>{t("faq.answers.7")}</p>
                         </div>
                       </div>
                     </div>
@@ -587,7 +555,7 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

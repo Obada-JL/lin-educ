@@ -1,0 +1,282 @@
+{
+  "dir": "ltr",
+  "meta": {
+    "title": "Lin Education",
+    "description": "Lin Education Platform"
+  },
+  "hero": {
+    "title": "Learn with Us",
+    "description": "Comprehensive Educational Platform",
+    "startNow": "Start Now",
+    "stats": {
+      "products": "Educational boards and booklets"
+    }
+  },
+  "whyUs": {
+    "title": "Why Us?",
+    "subtitle": "Discover a world of fun learning",
+    "features": {
+      "quality": {
+        "title": "High quality content",
+        "description": "Distinctive and carefully prepared educational curricula"
+      },
+      "flexible": {
+        "title": "Interactive education",
+        "description": "Interactive learning experience for easy understanding"
+      },
+      "interactive": {
+        "title": "Simplified information",
+        "description": "Easy design helps you focus while learning."
+      },
+      "affordable": {
+        "title": "Reasonable prices",
+        "description": "High quality education at affordable prices"
+      },
+      "certification": {
+        "title": "Certification",
+        "description": "Encouraging certificates to motivate children to continue"
+      },
+      "support": {
+        "title": "Customer trust",
+        "description": "Fresh content to ensure up-to-date and useful education"
+      }
+    }
+  },
+  "products": {
+    "title": "Featured Products",
+    "subtitle": "What's New",
+    "viewAll": "See all courses",
+    "details": "View Details"
+  },
+  "cta": {
+    "title": "Get started now!",
+    "description": "Start your learning journey today and unlock your full potential with us",
+    "buttons": {
+      "start": "Get started",
+      "view": "View courses"
+    }
+  },
+  "events": {
+    "title": "Upcoming Events",
+    "subtitle": "Coming soon",
+    "readMore": "Read more",
+    "date": {
+      "may": "May"
+    },
+    "location": "Location"
+  },
+  "courses": {
+    "title": "Our Courses",
+    "description": "Explore our wide range of courses",
+    "status": {
+      "loading": "Loading courses...",
+      "error": "Error loading courses",
+      "empty": "No courses available"
+    },
+    "filters": {
+      "title": "Filter by category",
+      "subtitle": "8 categories"
+    },
+    "card": {
+      "by": "by",
+      "details": "Details",
+      "lessons": "lessons"
+    }
+  },
+  "stats": {
+    "onlineCourses": "Online Courses"
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "courses": "Courses",
+    "contact": "Contact",
+    "switchLanguage": "التحويل للعربية",
+    "logo": {
+      "alt": "Lin Education Logo"
+    },
+    "dir": "ltr"
+  },
+  "footer": {
+    "description": "Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.",
+    "navigation": {
+      "title": "Navigation",
+      "home": "Home",
+      "about": "About",
+      "courses": "Courses",
+      "products": "Products",
+      "contact": "Contact"
+    },
+    "categories": {
+      "title": "Course Categories",
+      "ramadan": "Ramadan Lessons",
+      "sirah": "Sirah Lessons",
+      "tacwid": "Tacwid Lessons"
+    },
+    "help": {
+      "title": "Need Help?",
+      "faq": "FAQ",
+      "support": "Support",
+      "contact": "Contact",
+      "news": "Latest News"
+    },
+    "copyright": "Copyright © {year} - Lin Education. All Rights Reserved"
+  },
+  "about": {
+    "hero": {
+      "title": "About Us",
+      "description": "At Leen Foundation, we are concerned with designing and developing simple and innovative educational tools and materials, with the aim of motivating our children to understand Islam and care about its sciences. We use simple and effective tools such as cardboard, wood, and simple electronic boards, in addition to other resources that facilitate access to information accurately and clearly.\n\nWe aim to provide educational content that is easy to understand, suitable for all age groups, while maintaining the simplicity of presentation and the quality of information."
+    },
+    "main": {
+      "subtitle": "About us",
+      "title": "Empower Your Learning Journey With Us",
+      "description": "Discover our curated courses and interactive learning platform designed to fit your schedule and goals. Join our supportive community and master new skills at your own pace.",
+      "features": {
+        "content": "Comprehensive Content",
+        "paths": "Personalized Learning Paths",
+        "experience": "Interactive Experience"
+      },
+      "cta": "Get started"
+    },
+    "stats": {
+      "title": "Our Impact",
+      "description": "Discover the meaningful impact we've made in empowering learners worldwide.",
+      "items": {
+        "satisfaction": {
+          "title": "Satisfied Learners",
+          "subtitle": "Satisfied",
+          "value": "98%",
+          "period": "In the last 30 days"
+        },
+        "completion": {
+          "title": "Completion Rate",
+          "subtitle": "Course",
+          "value": "96%",
+          "period": "Since inception"
+        },
+        "instructors": {
+          "title": "Instructors",
+          "subtitle": "Expert",
+          "value": "500+",
+          "period": "Currently teaching"
+        },
+        "feedback": {
+          "title": "Feedback",
+          "subtitle": "Positive",
+          "value": "95%",
+          "period": "From our community"
+        }
+      }
+    },
+    "blog": {
+      "subtitle": "News",
+      "title": "Latest on our blog",
+      "readTime": "mins read"
+    },
+    "cta": {
+      "title": "Get started now!",
+      "description": "Start your learning journey today and unlock your full potential with us",
+      "buttons": {
+        "start": "Get started",
+        "courses": "View courses"
+      }
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact Information",
+      "description": "Get in touch with us for any inquiries, support, or collaboration opportunities."
+    },
+    "info": {
+      "phone": {
+        "number": "+90 535 080 18 11",
+        "description": "For Whatsapp you can contact us from +90 551 077 43 03 phone number."
+      },
+      "email": {
+        "address": "contact@lineduc.com",
+        "description": "Send us an email for any questions or support needs."
+      },
+      "location": {
+        "address": "Amsterdam, NL",
+        "description": "Visit our main office during business hours."
+      }
+    },
+    "form": {
+      "title": "Get in touch",
+      "subtitle": "Our team would love to hear from you.",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send Message",
+      "sending": "Sending..."
+    },
+    "faq": {
+      "title": "FAQ",
+      "questions": {
+        "support": {
+          "question": "Do you provide customer support?",
+          "answer": "Yes, we provide dedicated customer support through various channels."
+        },
+        "enroll": {
+          "question": "How do I enroll in a course?",
+          "answer": "You can easily enroll through our website by selecting a course and following the registration process."
+        },
+        "payment": {
+          "question": "What payment methods are accepted?",
+          "answer": "We accept various payment methods including credit cards and bank transfers."
+        },
+        "offline": {
+          "question": "Can I access courses offline?",
+          "answer": "Yes, many of our courses offer offline access through our mobile app."
+        }
+      }
+    }
+  },
+  "counter": {
+    "experience": {
+      "title": "Years of Experience",
+      "value": "5+"
+    },
+    "students": {
+      "title": "Students",
+      "value": "1000+"
+    },
+    "courses": {
+      "title": "Courses",
+      "value": "15+"
+    },
+    "satisfaction": {
+      "title": "Student Satisfaction",
+      "value": "98%"
+    }
+  },
+  "course": {
+    "loading": "Loading course...",
+    "notFound": "Course not found",
+    "relatedCourses": "Related Courses",
+    "downloadResource": "Download Resource",
+    "otherCourses": "Other Courses",
+    "lessons": "lessons",
+    "tabs": {
+      "videos": "Video Lessons",
+      "games": "Interactive Games",
+      "resources": "Learning Resources"
+    }
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "message": "The page you are looking for might have been removed or is temporarily unavailable.",
+    "backHome": "Back to Home"
+  },
+  "error": {
+    "title": "Something went wrong!",
+    "message": "We encountered an error while processing your request.",
+    "tryAgain": "Try again",
+    "backHome": "Back to Home"
+  },
+  "news": {
+    "title": "Latest News",
+    "subtitle": "Stay Updated",
+    "readMore": "Read More"
+  }
+}
