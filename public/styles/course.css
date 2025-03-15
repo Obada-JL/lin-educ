@@ -692,10 +692,10 @@ section
 	-o-transform: translateY(-2px);
 	transform: translateY(-2px);
 }
-.main_nav ul li:not(:last-child)
+/*.main_nav ul li:not(:last-child)
 {
 	margin-right: 36px;
-}
+}*/
 .main_nav ul li a
 {
 	font-size: 16px;
@@ -1492,6 +1492,7 @@ section
 	border: solid 1px var(--divider);
 	border-radius: var(--border_rad_l);
 	margin-bottom: 24px;
+	width: 100%;
 }
 .feature_box svg
 {
@@ -1907,7 +1908,7 @@ section
 {
 	border-radius: var(--border_rad_l);
 	overflow: hidden;
-	height: 219px;
+	/* height: 219px; */
 }
 .sidebar_content
 {

@@ -43,10 +43,21 @@
     }
   },
   "products": {
-    "title": "Featured Products",
-    "subtitle": "What's New",
-    "viewAll": "See all courses",
-    "details": "View Details"
+    "title": "Our Products",
+    "subtitle": "Discover our collection of Islamic books and educational materials",
+    "viewDetails": "View Details",
+    "loading": "Loading products...",
+    "error": "Error loading products",
+    "viewAll": "View All",
+    "details": "Details",
+    "features": {
+      "dimensions": "Dimensions",
+      "pageCount": "Page Count",
+      "publishingPlace": "Publishing Place",
+      "edition": "Edition",
+      "publishDate": "Publish Date",
+      "language": "Language"
+    }
   },
   "cta": {
     "title": "Get started now!",
@@ -71,16 +82,26 @@
     "status": {
       "loading": "Loading courses...",
       "error": "Error loading courses",
-      "empty": "No courses available"
+      "empty": "No courses available",
+      "noCourses": "There are no courses available in this category yet."
     },
     "filters": {
-      "title": "Filter by category",
-      "subtitle": "8 categories"
+      "title": "Filter by Category",
+      "subtitle": "8 categories",
+      "all": "All Categories"
     },
     "card": {
       "by": "by",
       "details": "Details",
-      "lessons": "lessons"
+      "lessons": "lessons",
+      "videos": "videos",
+      "games": "games",
+      "buyLink": "Buy now",
+      "videoCourse": "Video course",
+      "category": "Category",
+      "courses": "courses",
+      "viewCourses": "View Courses",
+      "startLearning": "Start Learning"
     }
   },
   "stats": {
@@ -89,16 +110,15 @@
   "navbar": {
     "home": "Home",
     "about": "About",
+    "products": "Products",
     "courses": "Courses",
     "contact": "Contact",
-    "switchLanguage": "التحويل للعربية",
     "logo": {
       "alt": "Lin Education Logo"
-    },
-    "dir": "ltr"
+    }
   },
   "footer": {
-    "description": "Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.",
+    "description": "Lin Education is a leading organization in the field of designing and developing simple and innovative educational tools and materials, with the aim of motivating our children to understand Islam and care about its sciences. We use simple and effective tools such as cardboard, wood, and simple electronic boards, in addition to other resources that facilitate access to information accurately and clearly.",
     "navigation": {
       "title": "Navigation",
       "home": "Home",
@@ -194,11 +214,11 @@
       },
       "email": {
         "address": "contact@lineduc.com",
-        "description": "Send us an email for any questions or support needs."
+        "description": "For Support you can conteact us from info@lineduc.com email address."
       },
       "location": {
-        "address": "Amsterdam, NL",
-        "description": "Visit our main office during business hours."
+        "address": "Syria, Turkey",
+        "description": ""
       }
     },
     "form": {
@@ -257,6 +277,9 @@
     "downloadResource": "Download Resource",
     "otherCourses": "Other Courses",
     "lessons": "lessons",
+    "videos": "videos",
+    "games": "games",
+    "courses": "Courses",
     "tabs": {
       "videos": "Video Lessons",
       "games": "Interactive Games",
@@ -278,5 +301,57 @@
     "title": "Latest News",
     "subtitle": "Stay Updated",
     "readMore": "Read More"
+  },
+  "product": {
+    "loading": "Loading products...",
+    "features.language": "Language",
+    "whatYoullLearn": "What you'll learn",
+    "author": "Added by the platform manager",
+    "viewDetails": "View Details",
+    "viewAll": "View All",
+    "details": "Details",
+    "buyLink": "Buy Now",
+    "filters": {
+      "all": "All Products",
+      "books": "Books",
+      "boards": "Boards",
+      "booklets": "Booklets",
+      "title": "Our Products"
+    },
+    "features": {
+      "dimensions": "Dimensions",
+      "pageCount": "Page Count",
+      "publishingPlace": "Publishing Place",
+      "edition": "Edition",
+      "publishDate": "Publish Date",
+      "language": "Language"
+    }
+  },
+  "currency": "TRY",
+  "achievements": {
+    "title": "Our Achievements",
+    "subtitle": "Our journey of success with our valued students",
+    "counters": {
+      "teaching": {
+        "title": "Modern Teaching",
+        "value": "90%",
+        "description": "We believe in modern teaching experience and provide quality content that helps students easily understand and acquire skills in a smooth way."
+      },
+      "videos": {
+        "title": "Educational Videos",
+        "value": "250+",
+        "description": "We create hundreds of high-quality educational videos that simplify complex topics, establish a strong foundation, and enhance understanding through effective methods."
+      },
+      "educationalBoards": {
+        "title": "Educational Boards",
+        "value": "17200+",
+        "description": "We design educational boards of various types covering different subjects, which helps in the simplification of information and makes it easy to understand."
+      },
+      "educationalBooks": {
+        "title": "Educational Books",
+        "value": "11200+",
+        "description": "We create educational books containing many activities, fun educational techniques, and information presented in an interesting and easy way."
+      }
+    }
   }
 }

@@ -40,7 +40,7 @@ export default function ContactPage() {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:5000/api/addMessage/", formData);
+      await axios.post("https://api.lineduc.com/api/addMessage/", formData);
 
       // Show success alert
       Swal.fire({
@@ -274,10 +274,9 @@ export default function ContactPage() {
                       <path d="M180.31-212q-27.01 0-45.66-18.66Q116-249.32 116-276.35v-407.62q0-27.03 18.65-45.53t45.66-18.5h599.38q27.01 0 45.66 18.66Q844-710.68 844-683.65v407.62q0 27.03-18.65 45.53T779.69-212H180.31ZM480-449.69 168-633.31v357q0 5.39 3.46 8.85t8.85 3.46h599.38q5.39 0 8.85-3.46t3.46-8.85v-357L480-449.69Zm0-67.31 305.85-179h-611.7L480-517ZM168-633.31V-696v419.69q0 5.39 3.46 8.85t8.85 3.46H168v-369.31Z" />
                     </svg>
                   </div>
-                  <h3>contact@lineduc.com</h3>
+                  <h3>{t("info.email.address")}</h3>
                   <p>
-                    Quis ipsum suspendisse ultrices gravida. Risus commodo
-                    viverra maecenas accumsan lacus vel facilisis.
+                    {t("info.email.description")}
                   </p>
                 </div>
                 {/* <!-- Info Box --> */}
@@ -293,10 +292,9 @@ export default function ContactPage() {
                       <path d="M480.28-485.39q26.64 0 45.33-18.97 18.7-18.97 18.7-45.61t-18.98-45.34Q506.36-614 479.72-614t-45.33 18.97q-18.7 18.98-18.7 45.62 0 26.64 18.98 45.33 18.97 18.69 45.61 18.69ZM480-184.46q114.38-100.08 178.15-195.08 63.77-95 63.77-167.54 0-105.38-68.5-175.34-68.5-69.96-173.42-69.96-104.92 0-173.42 69.96-68.5 69.96-68.5 175.34 0 72.54 63.77 167.54 63.77 95 178.15 195.08Zm0 68.84Q333.03-240.57 259.55-348.21q-73.47-107.64-73.47-198.87 0-122.46 82.07-209.69Q350.23-844 479.5-844q129.27 0 211.85 87.23 82.57 87.23 82.57 209.69 0 91.23-72.96 198.43Q628-241.46 480-115.62Zm0-434.07Z" />
                     </svg>
                   </div>
-                  <h3>Amsterdam, NL</h3>
+                  <h3>{t("info.location.address")}</h3>
                   <p>
-                    Quis ipsum suspendisse ultrices gravida. Risus commodo
-                    viverra maecenas accumsan lacus vel facilisis.
+                    {t("info.location.description")}
                   </p>
                 </div>
               </div>

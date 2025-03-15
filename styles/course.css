@@ -625,9 +625,10 @@ section {
   -o-transform: translateY(-2px);
   transform: translateY(-2px);
 }
-.main_nav ul li:not(:last-child) {
-  margin-right: 36px;
-}
+/*.main_nav ul li:not(:last-child)
+{
+	margin-right: 36px;
+}*/
 .main_nav ul li a {
   font-size: 16px;
   color: var(--primary_text);
@@ -1305,6 +1306,7 @@ section {
   border: solid 1px var(--divider);
   border-radius: var(--border_rad_l);
   margin-bottom: 24px;
+  width: 100%;
 }
 .feature_box svg {
   width: 18px;
@@ -1494,8 +1496,8 @@ section {
   margin-top: 26px;
 }
 .course_card {
-  width: calc((100% - 24px) / 2);
-  margin-bottom: 24px;
+  /* width: calc((100% - 24px) / 2); */
+  /* margin-bottom: 24px; */
 }
 .course_card_top {
   width: 100%;
@@ -1647,12 +1649,13 @@ section {
 
 .sidebar {
   padding-left: 24px;
-  margin-top: -326px;
+  margin-top: -455px;
 }
 .sidebar_pic {
   border-radius: var(--border_rad_l);
   overflow: hidden;
-  height: 219px;
+  /* height: 219px; */
+  height: 400px;
 }
 .sidebar_content {
   padding-top: 18px;
@@ -1661,7 +1664,7 @@ section {
   padding-bottom: 32px;
   border: solid 1px var(--divider);
   border-radius: var(--border_rad_l);
-  margin-top: 24px;
+  margin-top: 55px;
   background-color: var(--white);
 }
 .course_price {
@@ -2029,8 +2032,8 @@ section {
 }
 
 .course_header {
-  background: linear-gradient(to right, var(--primary_color), var(--primary_grad_end));
-  padding: 60px 0;
+  /* background: linear-gradient(to right, var(--primary_color), var(--primary_grad_end)); */
+  padding: 60px 30px;
   margin-bottom: 40px;
 }
 
@@ -2218,8 +2221,6 @@ section {
   padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
   height: 0;
   overflow: hidden;
-  border-radius: var(--border_rad_l);
-  margin-bottom: 20px;
 }
 
 .video-wrapper iframe, .game-wrapper iframe {
@@ -2341,4 +2342,223 @@ section {
 
 [dir="rtl"] .product-swiper .swiper-button-prev {
   transform: rotate(180deg);
+}
+
+/* Product Slider Styles */
+.product-slider {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.product-slider .nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.product-slider .nav-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--primary_color);
+}
+
+.product-slider .prev-slide {
+  left: 10px;
+}
+
+.product-slider .next-slide {
+  right: 10px;
+}
+
+.product-slider .owl-dots {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.product-slider .owl-dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.product-slider .owl-dot.active {
+  background: var(--primary_color);
+}
+
+/* RTL Support */
+[dir="rtl"] .product-slider .prev-slide {
+  left: auto;
+  right: 10px;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+[dir="rtl"] .product-slider .next-slide {
+  right: auto;
+  left: 10px;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* OwlCarousel Custom Styles */
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next {
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+.owl-carousel .owl-nav button.owl-prev {
+  left: 10px;
+}
+
+.owl-carousel .owl-nav button.owl-next {
+  right: 10px;
+}
+
+.owl-carousel .owl-nav button:hover {
+  background: #fff;
+}
+
+.owl-carousel .owl-dots {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.owl-carousel .owl-dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.owl-carousel .owl-dot.active {
+  background: var(--primary_color);
+}
+
+/* RTL Support */
+[dir="rtl"] .owl-carousel .owl-nav button.owl-prev {
+  right: 10px;
+  left: auto;
+}
+
+[dir="rtl"] .owl-carousel .owl-nav button.owl-next {
+  left: 10px;
+  right: auto;
+}
+
+/* Sidebar Course Items */
+.sidebar_course_item {
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  border-left: 3px solid transparent;
+}
+
+.sidebar_course_item:hover {
+  background-color: rgba(241, 241, 242, 0.7);
+}
+
+.sidebar_course_item.active {
+  background-color: rgba(89, 101, 212, 0.1);
+  border-left: 3px solid #5965d4;
+}
+
+.sidebar_course_title {
+  transition: color 0.3s ease;
+}
+
+.sidebar_course_item:hover .sidebar_course_title {
+  color: #5965d4;
+}
+
+.sidebar_course_item.active .sidebar_course_title {
+  color: #5965d4;
+}
+
+/* Video and Game Wrappers */
+.video-wrapper, .game-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-wrapper iframe, .game-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* RTL Support */
+[dir="rtl"] .sidebar_course_item {
+  border-left: none;
+  border-right: 3px solid transparent;
+}
+
+[dir="rtl"] .sidebar_course_item.active {
+  border-right: 3px solid #5965d4;
+}
+
+[dir="rtl"] .sidebar_course_image {
+  margin-right: 0;
+  margin-left: 12px;
+}
+
+/* Empty State */
+.empty-state {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  color: #757575;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+  .course_sidebar {
+    position: static !important;
+    margin-bottom: 30px;
+  }
+  
+  .sidebar_course_item {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .course_header h1 {
+    font-size: 24px;
+  }
+  
+  .nav_tabs {
+    flex-wrap: wrap;
+  }
+  
+  .tab_btn {
+    flex: 1;
+    min-width: 100px;
+  }
 }

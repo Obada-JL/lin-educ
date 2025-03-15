@@ -1,0 +1,94 @@
+.lang-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.lang-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.lang-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+[dir="rtl"] .header_right {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+[dir="rtl"] .main_nav ul {
+  padding-right: 0;
+}
+
+.lang-switcher-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  min-width: 100px;
+  justify-content: center;
+}
+
+.lang-switcher-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: #ccc;
+}
+
+.lang-text {
+  font-weight: 500;
+}
+
+.lang-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.lang-flag {
+  border-radius: 2px;
+  object-fit: cover;
+  margin-right: 8px;
+}
+
+[dir="rtl"] .lang-switcher-btn {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .lang-icon {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .lang-flag {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+  .lang-text {
+    display: none;
+  }
+
+  .lang-switcher-btn {
+    min-width: auto;
+    padding: 8px;
+  }
+
+  .lang-flag {
+    margin: 0;
+  }
+}

@@ -1,9 +1,11 @@
 "use client";
+import React from 'react';
 import heroIcon1 from "../../images/hero_icon_1.png";
 import subTitle1 from "../../images/subtitle_icon_1.png";
 import subTitle2 from "../../images/subtitle_icon_2.png";
 import starEmpty from "../../images/star_empty_1.png";
 import starFull from "../../images/star_empty_1.png";
+import videoIcon from "../../images/video-iconimg.jpg";
 import ctaBackground from "../../images/cta_background_1.jpg";
 import mainProductsImage from "../../images/main_products_image.png";
 import siraProduct from "../../images/siraProduct.png";
@@ -29,6 +31,42 @@ import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import { getTranslatedContent } from "../../utils/translation";
+import Loader from "./components/Loader";
+import Achievements from "./components/Achievements";
+
+// Error boundary component
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error("Carousel error:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="text-center p-4">
+          <p>Something went wrong with the carousel. Please try again later.</p>
+          <button 
+            className="btn btn-primary mt-2" 
+            onClick={() => this.setState({ hasError: false, error: null })}
+          >
+            Try Again
+          </button>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
 
 // Dynamic import for react-owl-carousel
 const OwlCarousel = dynamic(() => import("react-owl-carousel"), {
@@ -41,37 +79,29 @@ const options = {
   nav: true,
   navText: [
     // Previous Button
-    // <div className="slider_nav_btn slider_nav_btn_prev  courses_slider_prev d-flex flex-row align-items-center justify-content-center trans_200">
-    `
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 -960 960 960"
-        className="trans_200"
-      >
+    `<div class="slider_nav_btn slider_nav_btn_prev courses_slider_prev d-flex flex-row align-items-center justify-content-center trans_200">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="trans_200">
         <path d="M576-253.85 349.85-480 576-706.15 613.15-669l-189 189 189 189L576-253.85Z" />
       </svg>
-      `,
-    // </div>
-
+    </div>`,
     // Next Button
-    // <div className="slider_nav_btn slider_nav_btn_next courses_slider_next d-flex flex-row align-items-center justify-content-center trans_200">
-    `
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 -960 960 960"
-        className="trans_200"
-      >
+    `<div class="slider_nav_btn slider_nav_btn_next courses_slider_next d-flex flex-row align-items-center justify-content-center trans_200">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="trans_200">
         <path d="m535.85-480-189-189L384-706.15 610.15-480 384-253.85 346.85-291l189-189Z" />
       </svg>
-      `,
-    // </div>
+    </div>`
   ],
   dots: true,
+  autoplay: false,
+  autoplayTimeout: 5000,
+  autoplayHoverPause: true,
   responsive: {
     0: { items: 1 },
     600: { items: 2 },
     1000: { items: 3 },
   },
+  rewind: false,
+  lazyLoad: true
 };
 
 function HomePage() {
@@ -88,44 +118,56 @@ function HomePage() {
       try {
         setLoading(true);
         // Fetch products
-        const productsResponse = await fetch('http://localhost:5000/api/getProducts');
-        if (!productsResponse.ok) throw new Error('Failed to fetch products');
+        const productsResponse = await fetch(
+          "https://api.lineduc.com/api/getProducts"
+        );
+        if (!productsResponse.ok) throw new Error("Failed to fetch products");
         const productsData = await productsResponse.json();
 
         // Fetch news
-        const newsResponse = await fetch('http://localhost:5000/api/getNews');
-        if (!newsResponse.ok) throw new Error('Failed to fetch news');
+        const newsResponse = await fetch("https://api.lineduc.com/api/getNews");
+        if (!newsResponse.ok) throw new Error("Failed to fetch news");
         const newsData = await newsResponse.json();
 
         // Transform products data to match your structure
-        const transformedProducts = productsData.map(product => ({
+        const transformedProducts = productsData.map((product) => ({
           id: product._id,
-          title: product.title[locale] || '',
-          name: product.name[locale] || '',
-          description: product.description[locale] || '',
+          title: product.title[locale] || "",
+          name: product.name[locale] || "",
+          description: product.description[locale] || "",
           mainImage: product.mainImage,
           sliderImages: product.sliderImages || [],
-          features: product.features || []
+          features: product.features || [],
         }));
 
         setProducts(transformedProducts);
         setNews(newsData);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       } finally {
         setLoading(false);
       }
     };
-    
+
     fetchData();
   }, [locale]);
-  
-  console.log(products)
+
+  // Improved jQuery loading
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.$ = window.jQuery = require("jquery");
+    // Only load jQuery once and only in the browser
+    if (typeof window !== "undefined" && !window.jQuery) {
+      const jquery = require("jquery");
+      // Avoid overwriting existing jQuery instance
+      if (!window.jQuery) {
+        window.jQuery = jquery;
+      }
+      if (!window.$) {
+        window.$ = jquery;
+      }
     }
   }, []);
+
+  console.log(products);
 
   return (
     <>
@@ -137,10 +179,11 @@ function HomePage() {
                 className={`${
                   dir === "rtl" ? "home_content_right" : "home_content_left"
                 } home_content`}
+                style={{padding: "30px"}}
               >
                 <h1 className="home_title">{t("hero.title")}</h1>
                 <p className="home_description">{t("hero.description")}</p>
-                <div
+                <a href="#redirectCourses"
                   className="home_button trans_200"
                   id="home_button"
                   style={{
@@ -165,7 +208,7 @@ function HomePage() {
                       <h3> &darr;</h3>
                     </div>
                   </div>
-                </div>
+                </a>
               </div>
               <div className="home_content_right home_content d-flex flex-row align-items-center justify-content-center">
                 <div className="home_image">
@@ -212,7 +255,7 @@ function HomePage() {
                   <div className="home_stats home_stats_2">
                     <div className="d-flex flex-row align-items-center">
                       <div className="home_stats_icon_container d-flex flex-row align-items-center justify-content-center">
-                        <img src={heroIcon1} alt="" />
+                        <img src={videoIcon.src} alt="" width={35}/>
                       </div>
                       <div
                         className="home_stats_content"
@@ -378,6 +421,10 @@ function HomePage() {
           </div>
         </div>
       </div>
+
+      {/* <!-- Achievements Section --> */}
+      <Achievements />
+
       {/* <!-- Popular Products --> */}
       <div className="popular">
         <div className="container">
@@ -394,47 +441,63 @@ function HomePage() {
               </div>
             </div>
           </div>
-          <div className="row course_cards_container section_content_row">
-            <div className="col">
-              <div className="popular_courses_slider_container">
-                <OwlCarousel
-                  className="owl-carousel owl-theme popular_courses_slider"
-                  {...options}
-                >
-                  {products.map((product) => (
-                    <div key={product.id} className=" course_card_owl_item">
-                    <div className="course_card">
-                      <div className="course_card_container">
-                        <div className="course_card_top">
-                          <div className="course_card_pic">
-                              <img 
-                                src={`http://localhost:5000/productImages/${product.mainImage}`} 
-                                alt={product.title} 
-                              />
-                          </div>
-                          <div className="course_card_content">
-                            <div className="course_card_title">
-                                <h3>{product.title}</h3>
+          <div
+            className="row course_cards_container section_content_row"
+            dir="ltr"
+          >
+            <div className="col" dir="ltr">
+              <div className="popular_courses_slider_container" dir="ltr">
+                {loading ? (
+                  <Loader type="skeleton" size="lg" color="primary" text={t("products.loading")} />
+                ) : products.length > 0 ? (
+                  <ErrorBoundary>
+                    <OwlCarousel
+                      className="owl-carousel owl-theme popular_courses_slider"
+                      {...options}
+                    >
+                      {products.map((product) => (
+                        <div key={product.id} className="course_card_owl_item">
+                          <div className="course_card">
+                            <div className="course_card_container">
+                              <div className="course_card_top">
+                                <div className="course_card_pic d-flex justify-content-center">
+                                  <img
+                                    src={`https://api.lineduc.com/productsImages/${product.mainImage}`}
+                                    alt={product.title}
+                                    height={400}
+                                  />
+                                </div>
+                                <div className="course_card_content">
+                                  <div className="course_card_title">
+                                    <h3 className={`${dir === "rtl" ? "text-end" : "text-start"}`}>{product.title}</h3>
+                                  </div>
+                                  <div className="course_card_text">
+                                    <p className={`${dir === "rtl" ? "text-end" : "text-start"}`}>{product.description}</p>
+                                  </div>
+                                </div>
                               </div>
-                              <div className="course_card_text">
-                                <p>{product.description}</p>
+                              <div className="course_card_bottom trans_200 d-flex flex-row align-items-center">
+                                <div className="course_card_link ms-auto d-flex flex-row align-items-center">
+                                  <Link href={`/products/${product.id}`}>
+                                    <div className="d-flex flex-row align-items-center">
+                                      <span className="trans_200">
+                                        {t("products.details")}
+                                      </span>
+                                    </div>
+                                  </Link>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <div className="course_card_bottom trans_200 d-flex flex-row align-items-center">
-                          <div className="course_card_link ms-auto d-flex flex-row align-items-center">
-                              <Link href={`/products/${product.id}`}>
-                              <div className="d-flex flex-row align-items-center">
-                                  <span className="trans_200">{t("products.details")}</span>
-                              </div>
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </OwlCarousel>
+                      ))}
+                    </OwlCarousel>
+                  </ErrorBoundary>
+                ) : (
+                  <div className="text-center p-5">
+                    <p>{t("products.noProducts")}</p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -443,7 +506,7 @@ function HomePage() {
               {/* <!-- All Courses Link --> */}
               <div className="section_button_container d-flex flex-row">
                 <div className="button_fill button_arrow courses_button ms-auto trans_200">
-                  <a href="/courses">
+                  <a href="/products">
                     <div className="d-flex flex-row align-items-center">
                       <span>{t("products.viewAll")}</span>
                       <svg
@@ -461,7 +524,7 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="cta1 mt-5">
+      <div className="cta1 mt-5"id='redirectCourses'>
         <div className="cta1_inner grad_light d-flex flex-column align-items-center justify-content-center">
           <div
             className="background_image"
@@ -472,13 +535,13 @@ function HomePage() {
             <p>{t("cta.description")}</p>
             <div className="cta1_buttons d-flex flex-row align-items-center justify-content-center">
               {/* <!-- Button Fill --> */}
-              <div className="button_fill trans_200">
+              {/* <div className="button_fill trans_200">
                 <a href="#">
                   <div className="d-flex flex-row align-items-center">
                     <span>{t("cta.buttons.start")}</span>
                   </div>
                 </a>
-              </div>
+              </div> */}
               {/* <!-- Button Outlline --> */}
               <div className="button_outline trans_200">
                 <a href="/courses">
@@ -513,26 +576,39 @@ function HomePage() {
           <div className="row events_row section_content_row">
             <div className="col">
               {news.slice(0, 3).map((item) => (
-                <div key={item._id} className="event d-flex flex-row justify-content-between">
-                <div className="event_left d-flex flex-row">
-                  <div className="event_date d-flex flex-column align-items-center justify-content-center">
-                      <span>{new Date(item.createdAt).getDate()}</span>
-                      <span>{new Date(item.createdAt).toLocaleString(locale, { month: 'short' })}</span>
-                  </div>
-                  <div className="event_pic">
+                <div
+                  key={item._id}
+                  className="event d-flex flex-row justify-content-between"
+                >
+                  <div className="event_left d-flex flex-row">
+                    <div className="event_date d-flex flex-column align-items-center justify-content-center">
+                      <span>
+                        {item.newsDate ? new Date(item.newsDate).getDate() : ""}
+                      </span>
+                      <span>
+                        {item.newsDate
+                          ? new Date(item.newsDate).toLocaleString(locale, {
+                              month: "short",
+                              year: "numeric",
+                            })
+                          : ""}
+                      </span>
+                    </div>
+                    <div className="event_pic">
                       <div className="background_image">
-                        <img 
-                          src={`http://localhost:5000/newsImages/${item.newsImage}`}
+                        <img
+                          src={`https://api.lineduc.com/newsImages/${item.newsImage}`}
                           alt={item.newsTitle[locale]}
+                          style={{ width: "100%", height: "100%" }}
                         />
-                </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="event_right">
-                  <div className="event_title">
-                      <h3>{item.newsTitle[locale]}</h3>
-                  </div>
-                    <p>{item.newsDescription[locale]}</p>
+                  <div className="event_right">
+                    <div className="event_title">
+                      <h3>{item.newsTitle?.[locale]}</h3>
+                    </div>
+                    {/* <p>{item.newsDescription[locale]}</p> */}
                   </div>
                 </div>
               ))}
